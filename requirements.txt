@@ -1,18 +1,14 @@
 streamlit
+numpy
+scikit-learn
+nltk
 
-numpy==1.26.4
-scikit-learn==1.4.0
-nltk==3.8.1
+torch
+sentence-transformers
+transformers
+huggingface_hub
 
-torch==2.1.2
-sentence-transformers>=2.2.2,<3.0
-transformers==4.36.2
-sentencepiece==0.2.1
-protobuf==4.25.3
-spacy==3.7.2
-PyPDF2==3.0.1
-PyMuPDF==1.23.26
-pyttsx3==2.90
+spacy
+en-core-web-sm
 
-
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+PyPDF2
