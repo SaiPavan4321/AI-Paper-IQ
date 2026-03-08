@@ -6,8 +6,6 @@ def speak_output(text: str):
     Speak text locally using pyttsx3.
     On Streamlit Cloud, safely disable TTS.
     """
-
-    # Detect Streamlit Community Cloud
     if os.environ.get("STREAMLIT_CLOUD") == "1":
         st.warning("🔇 Voice output is disabled on Streamlit Cloud.")
         return

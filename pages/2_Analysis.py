@@ -92,6 +92,7 @@ with center:
 
 # ---------------- RUN MODULE ----------------
 if "selected_module" in st.session_state:
+    st.markdown("📊Output:")
 
     module = st.session_state.selected_module
 
