@@ -62,8 +62,20 @@ with top_right:
 
 
 # ---------------- GREETING ----------------
-hour = datetime.now().hour
-greet = "Good Morning" if hour < 12 else "Good Afternoon" if hour < 18 else "Good Evening"
+from datetime import datetime
+import pytz
+
+IST = pytz.timezone("Asia/Kolkata")
+hour = datetime.now(IST).hour
+
+if hour < 12:
+    greeting = "Good Morning"
+elif hour < 17:
+    greeting = "Good Afternoon"
+elif hour < 21:
+    greeting = "Good Evening"
+else:
+    greeting = "Good Night"
 
 st.markdown(
     f"""
