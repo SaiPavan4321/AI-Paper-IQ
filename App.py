@@ -19,8 +19,6 @@ with open("assets/styles.css", encoding="utf-8") as f:
 # ---------------- ENSURE DATA DIRECTORY ----------------
 data_dir = Path("/tmp/data")
 data_dir.mkdir(exist_ok=True)
-users_file = data_dir / "users.log")
-
 users_file = data_dir / "users.log"
 if not users_file.exists():
     users_file.touch()
