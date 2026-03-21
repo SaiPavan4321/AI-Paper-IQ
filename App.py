@@ -17,8 +17,9 @@ with open("assets/styles.css", encoding="utf-8") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
 # ---------------- ENSURE DATA DIRECTORY ----------------
-data_dir = Path("data")
+data_dir = Path("/tmp/data")
 data_dir.mkdir(exist_ok=True)
+users_file = data_dir / "users.log")
 
 users_file = data_dir / "users.log"
 if not users_file.exists():
@@ -37,7 +38,7 @@ if "username" not in st.session_state:
     st.session_state.username = ""
 
 # ---------------- VISITS FILE ----------------
-visits_file = Path("assets/visits.txt")
+visits_file = Path("/tmp/visits.txt")
 if not visits_file.exists():
     visits_file.write_text("0")
 
