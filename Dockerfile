@@ -14,11 +14,9 @@ RUN apt-get update && apt-get install -y \
 # Copy requirements first
 COPY requirements.txt .
 
-# Install PyMuPDF separately first (fixes fitz issue)
-RUN pip install --no-cache-dir pymupdf
-
-# Install rest of requirements
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir pymupdf==1.23.8 && \
+    pip install --no-cache-dir -r requirements.txt
 
 # Download spaCy model
 RUN python -m spacy download en_core_web_sm
