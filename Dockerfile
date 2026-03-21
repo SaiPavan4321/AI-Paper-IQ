@@ -22,6 +22,7 @@ COPY .streamlit /app/.streamlit
 # Set environment variables for HF Spaces
 ENV STREAMLIT_HOME=/tmp/.streamlit
 ENV HF_HOME=/tmp/huggingface
+ENV TMPDIR=/tmp
 ENV STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
 ENV STREAMLIT_SERVER_PORT=7860
 ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
