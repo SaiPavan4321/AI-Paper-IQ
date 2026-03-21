@@ -22,8 +22,17 @@ RUN pip install --no-cache-dir --upgrade pip && \
 RUN python -m spacy download en_core_web_sm
 
 # Download NLTK data
-RUN python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('wordnet')"
-
+RUN python -c "\
+import nltk; \
+nltk.download('punkt'); \
+nltk.download('punkt_tab'); \
+nltk.download('stopwords'); \
+nltk.download('wordnet'); \
+nltk.download('averaged_perceptron_tagger'); \
+nltk.download('maxent_ne_chunker'); \
+nltk.download('words'); \
+nltk.download('omw-1.4'); \
+"
 # Copy all project files
 COPY . .
 
