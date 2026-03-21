@@ -1,4 +1,5 @@
 import streamlit as st
+import pytz
 from datetime import datetime
 
 # ---------------- PAGE CONFIG ----------------
@@ -80,7 +81,7 @@ else:
 st.markdown(
     f"""
     <div class="hero-card">
-        <div class="hero-title">{greet}, {st.session_state.username} 👋</div>
+        <div class="hero-title">{greeting}, {st.session_state.username} 👋</div>
         <div class="hero-sub">
             Upload a text PDF to start analysis
         </div>
