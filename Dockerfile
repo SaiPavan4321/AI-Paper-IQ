@@ -6,28 +6,38 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
+    gcc \
+    g++ \
+    libmupdf-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy and install requirements
+# Copy requirements first
 COPY requirements.txt .
+
+# Install PyMuPDF separately first (fixes fitz issue)
+RUN pip install --no-cache-dir pymupdf
+
+# Install rest of requirements
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install spaCy model properly
+# Download spaCy model
 RUN python -m spacy download en_core_web_sm
+
+# Download NLTK data
+RUN python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('wordnet')"
 
 # Copy all project files
 COPY . .
-COPY .streamlit /app/.streamlit
 
-# Set environment variables for HF Spaces
+# Environment variables
 ENV STREAMLIT_HOME=/tmp/.streamlit
 ENV HF_HOME=/tmp/huggingface
-ENV TMPDIR=/tmp
 ENV STREAMLIT_BROWSER_GATHER_USAGE_STATS=false
 ENV STREAMLIT_SERVER_PORT=7860
 ENV STREAMLIT_SERVER_ADDRESS=0.0.0.0
-ENV STREAMLIT_SERVER_ENABLE_STATIC_SERVING=true
 ENV STREAMLIT_SERVER_MAX_UPLOAD_SIZE=200
+ENV STREAMLIT_SERVER_ENABLE_STATIC_SERVING=true
+ENV TMPDIR=/tmp
 
 EXPOSE 7860
 
