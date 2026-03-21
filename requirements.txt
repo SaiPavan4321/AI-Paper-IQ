@@ -2,13 +2,9 @@ streamlit
 numpy
 scikit-learn
 nltk
-
 torch
 sentence-transformers
 transformers
 huggingface_hub
-
 spacy
-en-core-web-sm
-
 PyPDF2
