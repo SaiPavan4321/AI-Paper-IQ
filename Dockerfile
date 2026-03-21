@@ -17,6 +17,7 @@ RUN python -m spacy download en_core_web_sm
 
 # Copy all project files
 COPY . .
+COPY .streamlit /app/.streamlit
 
 # Set environment variables for HF Spaces
 ENV STREAMLIT_HOME=/tmp/.streamlit
