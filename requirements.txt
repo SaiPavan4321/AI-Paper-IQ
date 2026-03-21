@@ -8,3 +8,4 @@ transformers
 huggingface_hub
 spacy
 PyPDF2
+pytz
