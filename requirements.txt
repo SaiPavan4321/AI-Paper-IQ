@@ -8,4 +8,11 @@ transformers
 huggingface_hub
 spacy
 PyPDF2
+PyMuPDF
 pytz
+keybert
+sumy
+pandas
+matplotlib
+wordcloud
+plotly
