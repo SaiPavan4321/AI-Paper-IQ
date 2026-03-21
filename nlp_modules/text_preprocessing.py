@@ -1,8 +1,13 @@
-import fitz  # PyMuPDF
 import re
 import string
 import spacy
 from nltk.tokenize import sent_tokenize
+try:
+    import fitz  # PyMuPDF
+except ImportError:
+    import subprocess
+    subprocess.run(["pip", "install", "pymupdf"], check=True)
+    import fitz
 
 nlp = None
 
